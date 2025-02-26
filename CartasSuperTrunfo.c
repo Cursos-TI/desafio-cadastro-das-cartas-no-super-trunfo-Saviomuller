@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Desafio Super Trunfo
+// Desafio Super Trunfo - Aluno: Sávio Muller - Matricula: 202407244432
 // Tema 1 - Cadastro das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
 
@@ -36,7 +36,7 @@ int main(){
 
     getchar(); // Limpa buffer antes de fgets
     printf("Digite o nome da cidade:\n");
-    fgets(cidade1, sizeof(cidade1), stdin);
+    fgets(cidade1, sizeof(cidade1), stdin); // "fgets" lê toda a linha digitável e armazena na string
     cidade1[strcspn(cidade1, "\n")] = 0; // Remove a quebra de linha
 
     printf("Digite a população da cidade:\n");
@@ -63,8 +63,8 @@ int main(){
     scanf("%2s", carta2); //"2s" Limita a 2 caracteres
 
 
-    getchar();
-    printf("Digite o nome da cidade:\n");
+    getchar(); // Limpa buffer antes de fgets
+    printf("Digite o nome da cidade:\n"); // "fgets" lê toda a linha digitável e armazena na string
     fgets(cidade2, sizeof(cidade2), stdin);
     cidade2[strcspn(cidade2, "\n")] = 0; // Remove a quebra de linha
 
@@ -82,23 +82,25 @@ int main(){
     
     //Imprime os dados da Carta 1
     printf("\n----------Dados Carta 1-----------\n");
-    printf("Estado: %c\n", estado1);
     printf("Carta: %s\n", carta1);
+    printf("Estado: %c\n", estado1);
+    printf("Código: %c%s\n", estado1, carta1);
     printf("Cidade: %s\n", cidade1);
     printf("População: %d\n", populacao1);
-    printf("Area: %.3f\n", area1);
-    printf("PIB: %.2f\n", pib1);
-    printf("Turísticos: %d\n", turisticos1);
+    printf("Area: %.3f Km²\n", area1); // "3f" Limita a impressão de apenas 3 casas após o ponto
+    printf("PIB: %.2f bilhões de reais\n", pib1); // ".2f" Limita a impressão de apenas 2 casas após o ponto
+    printf("Número de Pontos Turísticos: %d\n", turisticos1);
 
     //Imprime os dados da Carta 2
     printf("\n----------Dados Carta 2-----------\n");
-    printf("Estado: %c\n", estado2);
     printf("Carta: %s\n", carta2);
+    printf("Estado: %c\n", estado2);
+    printf("Código: %c%s\n", estado2, carta2);
     printf("Cidade: %s\n", cidade2);
     printf("População: %d\n", populacao2);
-    printf("Area: %.3f\n", area2);
-    printf("PIB: %.2f\n", pib2);
-    printf("Turísticos: %d\n", turisticos2);
+    printf("Area: %.3f Km²\n", area2); // ".3f" Limita a impressão de apenas 3 casas após o ponto
+    printf("PIB: %.2f bilhões de reais\n", pib2); // ".2f" Limita a impressão de apenas 2 casas após o ponto
+    printf("Número de Pontos Turísticos: %d\n", turisticos2);
 
     return 0;
 }
