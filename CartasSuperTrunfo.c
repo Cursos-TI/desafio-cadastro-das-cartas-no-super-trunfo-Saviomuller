@@ -11,23 +11,27 @@ int main(){
     char estado1; // Armazena a letra a ser atribuída para o estado de A - H
     char carta1[3]; // Armazena o numero a ser atribuido a carta de 01 - 04 (limitado a 2 dígitos)
     char cidade1[60]; // Armazena o nome da cidade com no máximo 59 caracteres
-    int populacao1; // Armazena a população da cidade
+    unsigned long int populacao1; // Armazena a população da cidade
     int turisticos1; // Armazena a quantidade de pontos turistícos da cidade
     float area1; // Armazena a aréa em km² da cidade
     float pib1; // Armazena o PIB da cidade
     float densidade1; // Armazena a Densidade Populacional
+    float inversoDensidade1; // Armazena a Densidade Populacional invertida
     float percapta1; // Armazena o PIB per Capta
+    float superPoder1; // Armazena super poder
 
     // Cadastro das variáveis da carta 2
     char estado2; // Armazena a letra a ser atribuída para o estado de A - H
     char carta2[3]; // Armazena o numero a ser atribuido a carta de 01 - 04 (limitado a 2 dígitos)
     char cidade2[60]; // Armazena o nome da cidade com no máximo 59 caracteres
-    int populacao2; // Armazena a população da cidade
+    unsigned long int populacao2; // Armazena a população da cidade
     int turisticos2; // Armazena a quantidade de pontos turistícos da cidade
     float area2; // Armazena a aréa em km² da cidade
     float pib2; // Armazena o PIB da cidade
     float densidade2; // Armazena a Densidade Populacional
-    float percapta2; // Armazena o PIB per Capta    
+    float inversoDensidade2; // Armazena a Densidade Populacional invertida
+    float percapta2; // Armazena o PIB per Capta
+    float superPoder2; // Armazena super poder
 
     // Entrada de dados para a  carta 1
     printf("Defina os dados para a carta 1\n");
@@ -84,13 +88,19 @@ int main(){
     printf("Digite a quantidade de pontos turísticos:\n");
     scanf("%d", &turisticos2);
 
-    // Calculos da densidade Populacional
+    // Cálculos da densidade Populacional
     densidade1 = (float) populacao1 / area1; // Cálculo para a carta 1
     densidade2 = (float) populacao2 / area2; // Cálculo para a carta 2
+    inversoDensidade1 = 1 / densidade1; // Cálculo da densidade invertida carta 1
+    inversoDensidade2 = 1 / densidade2; // Cálculo da densidade invertida carta 2
 
-    // Calculo do PIB per Capta
+    // Cálculo do PIB per Capta
     percapta1 = (float) (pib1 * 1000000000 ) / populacao1; // Cáculo do PIB per capta da carta 1, multilplicado para tranformar o PIB em Bilhões
-    percapta2 = (float) (pib2 * 1000000000 ) / populacao2; // Cáculo do PIB per capta da carta 2, multilplicado para tranformaro PIB em Bilhões
+    percapta2 = (float) (pib2 * 1000000000 ) / populacao2; // Cáculo do PIB per capta da carta 2, multilplicado para tranformar o PIB em Bilhões
+
+    // Cálculo do Supe Poder
+    superPoder1 = (float) populacao1 + area1 + pib1 + percapta1 + inversoDensidade1 + turisticos1;
+    superPoder2 = (float) populacao2 + area2 + pib2 + percapta2 + inversoDensidade2 + turisticos2;
 
     //Imprime os dados da Carta 1
     printf("\n----------Dados Carta 1-----------\n");
@@ -103,7 +113,9 @@ int main(){
     printf("PIB: %.2f bilhões de reais\n", pib1); // ".2f" Limita a impressão de apenas 2 casas após o ponto
     printf("Número de Pontos Turísticos: %d\n", turisticos1);
     printf("Densidade Populacional: %.2f hab/Km²\n", densidade1);
-    printf("PIB per Capta: %.2f reais", percapta1);
+    printf("PIB per Capta: %.2f reais\n", percapta1);
+    printf("Super Poder: %.2f\n", superPoder1);
+    printf("Densidade Invertida: %.4f\n",inversoDensidade1);
 
     //Imprime os dados da Carta 2
     printf("\n----------Dados Carta 2-----------\n");
@@ -116,7 +128,22 @@ int main(){
     printf("PIB: %.2f bilhões de reais\n", pib2); // ".2f" Limita a impressão de apenas 2 casas após o ponto
     printf("Número de Pontos Turísticos: %d\n", turisticos2);
     printf("Densidade Populacional: %.2f hab/Km²\n", densidade2);
-    printf("PIB per Capta: %.2f reais", percapta2);
+    printf("PIB per Capta: %.2f reais\n", percapta2);
+    printf("Super Poder: %.2f\n", superPoder2);
+    printf("Densidade Invertida: %.4f\n",inversoDensidade2);
+
+    // Comparação dos dados das cartas
+    printf("---Resultado das Comparações---\n");
+    printf("---RESULTADO 1 CARTA 1 VENCEU\n");
+    printf("---RESULTADO 0 CARTA 2 VENCEU\n");
+    printf("População: %d\n", populacao1 > populacao2);
+    printf("Área: %d\n", area1 > area2);
+    printf("PIB: %d\n", pib1 > pib2);
+    printf("Pontos Turísticos: %d\n", turisticos1 > turisticos2);
+    printf("Densidade: %d\n", densidade1 < densidade2);
+    printf("PIB per Capta: %d\n", percapta1 > percapta2);
+    printf("Super Poder: %d\n", superPoder1 > superPoder2);
 
     return 0;
+
 }
